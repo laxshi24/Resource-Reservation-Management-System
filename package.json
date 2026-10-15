@@ -1,0 +1,46 @@
+{
+  "name": "resource-reservation-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Resource Reservation Management System - PrimeWave Lab internship technical assessment",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,user,admin -c blue,green,magenta \"npm run dev -w @rrms/backend\" \"npm run dev -w @rrms/user\" \"npm run dev -w @rrms/admin\"",
+    "dev:user": "npm run dev -w @rrms/user",
+    "dev:admin": "npm run dev -w @rrms/admin",
+    "dev:backend": "npm run dev -w @rrms/backend",
+    "start": "concurrently -n api,user,admin -c blue,green,magenta \"npm run start -w @rrms/backend\" \"npm run start -w @rrms/user\" \"npm run start -w @rrms/admin\"",
+    "db:generate": "npm run db:generate -w @rrms/backend",
+    "db:migrate": "npm run db:migrate -w @rrms/backend",
+    "db:migrate:deploy": "npm run db:migrate:deploy -w @rrms/backend",
+    "db:seed": "npm run db:seed -w @rrms/backend",
+    "db:studio": "npm run db:studio -w @rrms/backend",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present && tsc -p tsconfig.e2e.json",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "playwright test",
+    "build": "npm run build -w @rrms/backend && npm run build -w @rrms/user && npm run build -w @rrms/admin"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.23.1",
+    "concurrently": "^10.0.6",
+    "dotenv": "^17.2.3",
+    "pg": "^8.23.1",
+    "typescript": "~6.0.3"
+  },
+  "allowScripts": {
+    "prisma@7.10.0": true,
+    "@prisma/engines@7.10.0": true,
+    "esbuild@0.28.2": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "@rrms/web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "UI components, API client and helpers shared by the user and admin websites",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./components/*": "./src/components/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./features/*": "./src/features/*.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "@rrms/shared": "*",
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.4.0",
+    "lucide-react": "^1.57.0",
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.8.1",
+    "react-hook-form": "^7.90.0",
+    "server-only": "^0.0.1",
+    "sonner": "^2.0.8",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "next": "16.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.1",
+    "next": "16.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.11"
+  }
+}
